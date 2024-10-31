@@ -35,17 +35,25 @@
 /*
     Constructor, se le debe indicar el pin al cual se ha conectado el modulo
 */
-MentorBitIR::MentorBitIR(uint8_t ir_pin){
-    _ir_pin = ir_pin;
-    pinMode(_ir_pin, INPUT);
+MentorBitIR::MentorBitIR(uint8_t ir_pin = 0) {
+    _port.gpios[0] = ir_pin;
 }
 
 /*
     Funcion que devuelve un valor de true o false en funcion de si hay un objeto delante del 
     modulo o no. El color del objeto afecta significativamente a la deteccion
 */
-bool MentorBitIR::objetoPresente(){
+bool MentorBitIR::objetoPresente() {
     bool value;
-    value = digitalRead(_ir_pin);
+    value = digitalRead(_port.gpios[0]);
     return value;
+}
+
+void MentorBitIR::configPort(const Port& port) {
+
+    _port.type = port.type;
+    _port.location = port.location;
+    _port.gpios[0] = port.gpios[0];
+    _port.gpios[1] = port.gpios[1];
+
 }

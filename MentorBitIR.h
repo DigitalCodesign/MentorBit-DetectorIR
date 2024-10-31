@@ -34,17 +34,20 @@
 #define MentorBitIR_h
 
 #include <arduino.h>
+#include <MentorPort.h>
 
-class MentorBitIR{
+class MentorBitIR : public MentorPort
+{
 
     public: 
 
         MentorBitIR(uint8_t ir_pin);
         bool objetoPresente();
+        void configPort(const Port& port) override;
 
     private: 
 
-        uint8_t _ir_pin;
+        uint8_t _port;
 
 };
 
