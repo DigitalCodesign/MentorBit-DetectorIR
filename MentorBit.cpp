@@ -36,7 +36,7 @@
     Constructor, se le debe indicar el pin al cual se ha conectado el modulo
 */
 MentorBitIR::MentorBitIR(uint8_t ir_pin = 0) {
-    _port.gpios[0] = ir_pin;
+    _port.gpios[1] = ir_pin;
 }
 
 /*
@@ -45,7 +45,7 @@ MentorBitIR::MentorBitIR(uint8_t ir_pin = 0) {
 */
 bool MentorBitIR::objetoPresente() {
     bool value;
-    value = digitalRead(_port.gpios[0]);
+    value = digitalRead(_port.gpios[1]);
     return value;
 }
 
