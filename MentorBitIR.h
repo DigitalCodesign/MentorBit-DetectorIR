@@ -41,13 +41,13 @@ class MentorBitIR : public MentorPort
 
     public: 
 
-        MentorBitIR(uint8_t ir_pin);
+        MentorBitIR(uint8_t ir_pin = 0);
         bool objetoPresente();
         void configPort(const Port& port) override;
 
     private: 
 
-        uint8_t _port;
+        Port _port;
 
 };
 
