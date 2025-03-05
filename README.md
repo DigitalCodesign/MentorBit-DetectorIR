@@ -1,55 +1,49 @@
-# MentorBit-DetectorIR
+# MentorBitIR
+
+Librería para la detección de objetos mediante sensor infrarrojo (IR) en módulos compatibles con MentorBit.
 
 ## Descripción
 
-Esta librería está construida por Digital Codesign para interactuar con el Módulo Detector IR, diseñado principalmente para el kit educacional MentorBit. El Detector IR permite detectar la presencia de un objeto frente al sensor, ideal para proyectos de detección de movimiento o proximidad.
+La librería `MentorBitIR` permite detectar la presencia de objetos utilizando un sensor infrarrojo (IR) en módulos compatibles con MentorBit. Devuelve un valor booleano que indica si se ha detectado un objeto dentro del rango del sensor. Es útil para aplicaciones de detección de proximidad, conteo de objetos y evitación de obstáculos.
 
-Puedes encontrar nuestro Módulo MentorBit y mucho más material de electrónica y robótica en nuestra tienda oficial: [https://digitalcodesign.com/shop](https://digitalcodesign.com/shop)
+**Importante:** La detección puede verse afectada por el color y la reflectividad del objeto.
 
 ## Modo de Empleo
 
-Una vez que tengamos la librería instalada desde el Arduino IDE, necesitamos incluir la librería con la siguiente línea:
+1.  **Instalación:**
+    * Abre el IDE compatible con MentorBit.
+    * Ve a "Herramientas" -> "Gestionar librerías..."
+    * Busca "MentorBitIR" e instálala.
 
-```cpp
-#include <MentorBitIR.h>
-```
+2.  **Ejemplo básico:**
+
+    ```c++
+    #include <MentorBitIR.h>
+
+    MentorBitIR irSensor(2); // Sensor IR conectado al pin 2
+
+    void setup() {
+      Serial.begin(9600);
+      Serial.println("Sensor IR inicializado.");
+    }
+
+    void loop() {
+      if (irSensor.objetoPresente()) {
+        Serial.println("Objeto detectado.");
+      } else {
+        Serial.println("No se detecta objeto.");
+      }
+      delay(500);
+    }
+    ```
+
+## Constructor y Métodos Públicos
 
 ### Constructor
 
-Una vez incluida la librería, usamos el constructor para crear el objeto del módulo **Detector IR**, y definimos el pin al que está conectado el sensor IR:
+* `MentorBitIR(uint8_t ir_pin = 0)`: Crea un objeto `MentorBitIR`.
+    * `ir_pin`: Número de pin al que está conectado el sensor IR. Si no se especifica, se asume que no está conectado a ningún pin inicialmente.
 
-```cpp
-MentorBitIR detector(PIN_IR);
-```
+### Métodos
 
-Donde `PIN_IR` es el pin al que está conectado el sensor **IR**.
-
-### Uso
-
-Con el objeto `detector` definido, podemos verificar si hay un objeto presente frente al sensor utilizando la función `objetoPresente()`, que devuelve un valor de tipo `bool`:
-
-#### Verificar si hay un objeto presente
-
-```cpp
-bool objeto = detector.objetoPresente();
-```
-
-Esta función devuelve `true` si un objeto está presente frente al sensor, y `false` si no lo está. El color del objeto puede afectar la precisión de la detección.
-
-### Configuración de puertos
-
-Si deseas configurar puertos personalizados, puedes usar la función `configPort()` para asignar los pines y configuraciones de puertos que necesitas:
-
-```cpp
-Port port;
-port.type = 'm';
-port.gpios[0] = 2;  // Pin de configuración
-port.gpios[1] = 3;  // Pin IR
-detector.configPort(port);
-```
-
-Donde `port` es un objeto de tipo `Port` que contiene las configuraciones necesarias.
-
-## Atributos
-
-- `PIN_IR`: Define el pin al que está conectado el sensor **IR**.
+* `bool objetoPresente()`: Devuelve `true` si se detecta un objeto, `false` en caso contrario.
