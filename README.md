@@ -32,9 +32,11 @@ Gracias a ella, podrás centrarte en lo más importante: ¡qué hará tu proyect
 Usar la librería es muy sencillo. Solo sigue estos pasos para tener tu sensor detectando objetos en pocos minutos.
 
 1. **Conexión del Módulo**
-Antes que nada, conecta tu módulo de sensor DHT11 a uno de los puertos Digitales de Entrada/Salida dentro de la zona de Puertos para Módulos en tu placa MentorBit. ¡Y listo! No necesitas más cables.
+
+Antes que nada, conecta tu módulo de sensor DHT11 a uno de los puertos ***Digitales de Entrada/Salida*** dentro de la zona de ***Puertos para Módulos*** en tu placa MentorBit. ¡Y listo! No necesitas más cables.
 
 2. **Instalación de las Librerías**
+
 Para que tu placa MentorBit pueda comunicarse con el sensor, solo necesitas instalar una librería. El gestor del IDE de Arduino se encargará del resto.
 
 - Abre tu entorno de programación IDE de Arduino.
