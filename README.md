@@ -58,7 +58,7 @@ El siguiente código es todo lo que necesitas para comprobar continuamente si ha
 #include <MentorBitIR.h>
 
 // Definimos el pin digital al que hemos conectado el módulo.
-#define IR_PIN 2
+#define IR_PIN 24
 
 // 2. Creamos un objeto 'miSensor' y le indicamos el pin que vamos a usar.
 MentorBitIR miSensor(IR_PIN);
