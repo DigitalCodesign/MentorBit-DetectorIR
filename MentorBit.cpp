@@ -37,6 +37,7 @@
 */
 MentorBitIR::MentorBitIR(uint8_t ir_pin = 0) {
     _port.gpios[1] = ir_pin;
+    pinMode(_port.gpios[1], INPUT);
 }
 
 /*
