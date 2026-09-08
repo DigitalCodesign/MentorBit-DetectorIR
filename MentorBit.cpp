@@ -17,9 +17,9 @@
         
 
     Autor: Digital Codesign
-    Version: 1.0.0
+    Version: 1.0.1
     Fecha de creación: Septiembre de 2024
-    Fecha de version: Septiembre de 2024
+    Fecha de version: Septiembre de 2026
     Repositorio: https://github.com/DigitalCodesign/MentorBit-DetectorIR
     Descripcion: 
         Esta libreria esta especificamente diseñada para ser utilizada junto con 
@@ -35,9 +35,8 @@
 /*
     Constructor, se le debe indicar el pin al cual se ha conectado el modulo
 */
-MentorBitIR::MentorBitIR(uint8_t ir_pin = 0) {
+MentorBitIR::MentorBitIR(uint8_t ir_pin) {
     _port.gpios[1] = ir_pin;
-    pinMode(_port.gpios[1], INPUT);
 }
 
 /*
